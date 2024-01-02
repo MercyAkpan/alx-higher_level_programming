@@ -3,7 +3,7 @@ import random
 number = random.randint(-10000, 10000)
 ldigit = abs(number) % 10
 if number < 0:
-	ldigit = -(ldigit)
+    ldigit = -(ldigit)
 motif = "Last digit of {} is ".format(number)
 if (ldigit > 5):
     print(f"{motif}{ldigit} and is greater than 5")
