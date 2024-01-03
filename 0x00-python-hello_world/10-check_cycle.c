@@ -12,9 +12,10 @@ int check_cycle(listint_t *list)
 
 	if (!list || !list->next)
 		return (0);
-	Ft = list->next->next;
-	St = list->next;
-	while (Ft && St && list)
+	/*Ft = list->next->next;*/
+	Ft = list->next;/*Ft points to what head of list points t0*/
+	St = list;/*This points to head of list*/
+	while (Ft && St && list && Ft->next)
 	{
 		Ft = Ft->next->next;
 		St = St->next;
