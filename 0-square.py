@@ -2,6 +2,6 @@
 """ Give a class square"""
 
 
-class square:
+class Square:
     """Display square."""
     pass
