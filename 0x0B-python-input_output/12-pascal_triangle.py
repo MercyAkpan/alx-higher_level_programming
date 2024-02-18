@@ -1,27 +1,35 @@
 #!/usr/bin/python3
-"""
 
-Module Pascal
-
-"""
+"""Solves the Pascal's triangle problem"""
 
 
-def pascal_triangle(n):
+def pascal_triangle(n: int) -> "list[list[int]]":
     """
-    Function that return the list of list
-    Matrtrix
-    """
+    Returns a list of lists of integers representing ou arethe Pascal's
+    triangle up to height `n`.
 
+    Args:
+        n (int): The height of the triangle.
+
+    Returns:
+        list[list[int]]: The reprentation of the triangle.
+    """
     if n <= 0:
-        return
+        return []
 
-    triangle = [[1]]
-    for i in range(1, n):
-        row = [1]
-        last_row = triangle[i - 1]
-        for j in range(len(last_row) - 1):
-            row.append(last_row[j] + last_row[j + 1])
-        row.append(1)
-        triangle.append(row)
+    p_triangle = [[1]]
 
-    return triangle
+    for _ in range(n - 1):
+        current_row = p_triangle[-1]
+        new_row = (
+            [1]
+            + [
+                current_row[i] + current_row[i + 1]
+                for i in range(len(current_row) - 1)
+            ]
+            + [1]
+        )
+
+        p_triangle.append(new_row)
+
+    return p_triangle
