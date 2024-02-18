@@ -73,7 +73,7 @@ class Rectangle(Base):
             ValueError: value must be > 0
         """
 
-        if type(value) isnot  int:
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -96,7 +96,7 @@ class Rectangle(Base):
             VlueError: value must be > 0
         """
 
-        if type(value) isnot int:
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -119,7 +119,7 @@ class Rectangle(Base):
             ValueError: value must be > 0
         """
 
-        if type(value)  isnot int:
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
