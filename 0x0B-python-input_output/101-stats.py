@@ -1,41 +1,76 @@
 #!/usr/bin/python3
-"""Log parsing script."""
-import sys
+"""Reads from standard input and computes metrics"""
 
-total_size = 0
-codes = {'200': 0, '301': 0, '400': 0, '401': 0,
-         '403': 0, '404': 0, '405': 0, '500': 0}
-iteration = 0
+from typing import Dict, List, Tuple
+
+VALID_CODES = {"200", "301", "400", "401", "403", "404", "405", "500"}
 
 
-def print_stats():
-    """Function that prints a resume of the stats."""
-    print("File size: {}".format(total_size))
-    for k, v in sorted(codes.items()):
-        if v is not 0:
-            print("{}: {}".format(k, v))
+def print_stats(size: int, status_codes: Dict[str, int]) -> None:
+    """
+    Print accumulated metrics.
+
+    Args:
+        size (int): Total file size.
+        status_codes (Dict[str, int]): Dictionary containing status codes
+        and their counts.
+    """
+    print("File size: {}".format(size))
+    for key in sorted(status_codes):
+        print("{}: {}".format(key, status_codes[key]))
 
 
-try:
-    for line in sys.stdin:
-        line = line.split()
-        if len(line) >= 2:
-            tmp = iteration
-            if line[-2] in codes:
-                codes[line[-2]] += 1
-                iteration += 1
-            try:
-                total_size += int(line[-1])
-                if tmp == iteration:
-                    iteration += 1
-            except:
-                if tmp == iteration:
-                    continue
+def process_line(
+    line: List[str], size: int, status_codes: Dict[str, int]
+) -> Tuple[int, Dict[str, int]]:
+    """
+    Process a single line and update metrics.
 
-        if iteration % 10 == 0:
-            print_stats()
+    Args:
+        line (List[str]): List of strings representing a line.
+        size (int): Current total file size.
+        status_codes (Dict[str, int]): Dictionary containing status codes
+        and their counts.
 
-    print_stats()
+    Returns:
+        Tuple[int, Dict[str, int]]: Updated size and status_codes.
+    """
+    try:
+        size += int(line[-1])
+    except (IndexError, ValueError):
+        pass
 
-except KeyboardInterrupt:
-    print_stats()
+    try:
+        if line[-2] in VALID_CODES:
+            status_codes[line[-2]] = status_codes.get(line[-2], 0) + 1
+    except IndexError:
+        pass
+
+    return size, status_codes
+
+
+def process_input() -> None:
+    """Reads from standard input, processes lines, and prints metrics."""
+    size = 0
+    status_codes: Dict[str, int] = {}
+    count = 0
+
+    try:
+        for line in sys.stdin:
+            count = (count + 1) % 10
+            size, status_codes = process_line(line.split(), size, status_codes)
+
+            if count == 0:
+                print_stats(size, status_codes)
+
+        print_stats(size, status_codes)
+
+    except KeyboardInterrupt:
+        print_stats(size, status_codes)
+        raise
+
+
+if __name__ == "__main__":
+    import sys
+
+    process_input()
