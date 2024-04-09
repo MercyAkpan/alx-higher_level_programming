@@ -11,18 +11,21 @@ class Rectangle {
   print () { // HERE USE DATA FIELDS (width, height) not (w,h)
     let i = 0;
     let j = 0;
-    const array = new Array(this.height); // create a new array
-    while (i < this.height) {
-      array[i] = new Array(this.width); // create a new array for every element of the array - 2D
-      while (j < this.width) {
-        array[i].push('X'); // array property to push in an element
-        j++;
-      } // j = convert
-      j = 0; // Reassign j to 0.
-      i++;
-    }
-    for (i = 0; i < this.height; i++) { // print every element in a sub array , together as a string separated by ""
-      console.log(array[i].join(''));
+    try { // To catch RangeError for -ve numbers
+      const array = new Array(this.height); // create a new array
+      while (i < this.height) {
+        array[i] = new Array(this.width); // create a new array for every element of the array - 2D
+        while (j < this.width) {
+          array[i].push('X'); // array property to push in an element
+          j++;
+        } // j = convert
+        j = 0; // Reassign j to 0.
+        i++;
+      }
+      for (i = 0; i < this.height; i++) { // print every element in a sub array , together as a string separated by ""
+        console.log(array[i].join(''));
+      }
+    } catch (RangeError) {
     }
   }
 
