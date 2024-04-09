@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function PrintC (arg) {
+function PrintC (arg) { // Function name must be distinct
   // Use Number() to attempt conversion with explicit checking for NaN
   const convert = Number(arg); /* Better than parseint() that only converts portion of string
                                 to an integer, stopping at 1st non-numeric xter */
