@@ -5,7 +5,7 @@ function MakeaSquare (arg) {
   const convert = Number(arg); /* Better than parseint() that only converts portion of string
                                 to an integer, stopping at 1st non-numeric xter */
   if (Number.isNaN(convert)) {
-    console.log('Missing number of occurrences');
+    console.log('Missing size');
   } else {
     try { // For positive values
       let i = 0; let j = 0; const array = new Array(convert); // create a new array
