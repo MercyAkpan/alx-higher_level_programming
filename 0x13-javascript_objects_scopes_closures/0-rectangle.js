@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
 class Rectangle {
-}
-module.exports = Rectangle;
+} // default constructor is present
+module.exports = Rectangle; // This helps to export a particular class : Rectangle
