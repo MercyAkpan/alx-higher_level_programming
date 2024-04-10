@@ -12,7 +12,9 @@ function SecBiggest (a) {
     b[i] = Number(b[i]);
     i++;
   }
-  console.log(b.sort()[len - 2]);
+  const sortedNumbers = b.sort((a, j) => a - j);
+  console.log(sortedNumbers[sortedNumbers.length - 2]);
+//  console.log((b.sort()[len - 2]));
 }
 const argv = process.argv;
 SecBiggest(argv);
