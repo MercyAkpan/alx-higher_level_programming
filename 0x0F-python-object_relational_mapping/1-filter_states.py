@@ -12,8 +12,13 @@ if __name__ == '__main__':
     cur = db.cursor()
 # ABOVE..This creates an instance,to create multiple queries on the mysql db
 
-    cur.execute("""SELECT * FROM states WHERE UPPER(name)
-                LIKE 'N%'""")
+    cur.execute("""SELECT MIN(id), name
+                FROM states
+                WHERE name LIKE 'N%'
+                GROUP BY name
+                """)
+# ABOVE.. This select unique entries by choosing based on min. id,
+# as id is unique
     result = cur.fetchall()  # to fetch result from cur.execute
     for data in result:
         print(data)
