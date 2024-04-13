@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-if __name__ = '__main__':
+if __name__ == '__main__':
     import MySQLdb
     """MySQLdb is  a python interface for connecting to databases. """
     db = MySQLdb.connect(host='localhost', user='meme', password='password1',
