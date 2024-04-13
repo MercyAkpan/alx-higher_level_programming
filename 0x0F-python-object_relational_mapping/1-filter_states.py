@@ -12,8 +12,8 @@ if __name__ == '__main__':
     cur = db.cursor()
 # ABOVE..This creates an instance,to create multiple queries on the mysql db
 
-    cur.execute("SELECT * FROM states")
-# SELECT * FROM states ORDER by id DESC - for descending
+    cur.execute("""SELECT * FROM states WHERE UPPER(name)
+                LIKE 'N%'""")
     result = cur.fetchall()  # to fetch result from cur.execute
     for data in result:
         print(data)
