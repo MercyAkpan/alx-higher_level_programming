@@ -10,3 +10,4 @@ if __name__ == '__main__':
     result = cur.fetchall()  # to fetch result from cur.execute
     for data in result:
         print(data)
+    db.close()
