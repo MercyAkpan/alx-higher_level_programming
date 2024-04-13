@@ -10,10 +10,11 @@ if __name__ == '__main__':
                          password=user_password,
                          port=3306, db=database)
     cur = db.cursor()
+# ABOVE..This creates an instance,to create multiple queries on the mysql db
 
     cur.execute("SELECT * FROM states")
     result = cur.fetchall()  # to fetch result from cur.execute
     for data in result:
         print(data)
-    cur.close()
-    db.close()
+    cur.close()  # closing a particular cursor object
+    db.close()   # closing entire db conection to mysql
