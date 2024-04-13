@@ -2,7 +2,7 @@
 if __name__ == '__main__':
     import MySQLdb
     """MySQLdb is  a python interface for connecting to databases. """
-    db = MySQLdb.connect(host='localhost', user='root', password='password',
+    db = MySQLdb.connect(host='localhost', user='root', password='root',
                          port=3306, db='hbtn_0e_0_usa')
     cur = db.cursor()
 
