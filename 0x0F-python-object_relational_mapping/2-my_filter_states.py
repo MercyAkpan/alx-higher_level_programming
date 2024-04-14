@@ -17,7 +17,6 @@ if __name__ == '__main__':
 # ABOVE.. This select unique entries by choosing based on min. id,
 # as id is unique
     result = cur.fetchall()  # to fetch result from cur.execute
-    print(result)
     for data in result:
         print(data)
     cur.close()  # closing a particular cursor object
