@@ -12,7 +12,7 @@ if __name__ == '__main__':
                          port=3306, db=database)
     cur = db.cursor()
 # ABOVE..This creates an instance,to create multiple queries on the mysql db
-    query = """SELECT MIN(id), name FROM states
+    query = """SELECT  * FROM states
                WHERE name = %s
                ORDER by id ASC"""
     cur.execute(query, (search,))
