@@ -16,6 +16,7 @@ if __name__ == '__main__':
                WHERE name = %s
                ORDER by id ASC"""
     cur.execute(query, (search,))
+# * selects all the columns where name = argv[4]
 # ABOVE.. This select unique entries by choosing based on min. id,
 # as id is unique
     result = cur.fetchall()  # to fetch result from cur.execute
