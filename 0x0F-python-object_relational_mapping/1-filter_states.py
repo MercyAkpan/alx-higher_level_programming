@@ -14,7 +14,7 @@ if __name__ == '__main__':
 
     cur.execute("""SELECT MIN(id), name
                 FROM states
-                WHERE name LIKE 'N%'
+                WHERE name LIKE BINARY 'N%'
                 GROUP BY name
                 """)
 # ABOVE.. This select unique entries by choosing based on min. id,
