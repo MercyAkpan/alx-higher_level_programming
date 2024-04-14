@@ -11,12 +11,13 @@ if __name__ == '__main__':
                          password=user_password,
                          port=3306, db=database)
     cur = db.cursor()
-    query = """SELECT MIN(id), name FROM states WHERE name='{}'
-                ORDER by id ASC
-                """.format(search)
-    cur.execute(query)
-    # ABOVE.. This select unique entries by choosing based on min. id,
-    # as id is unique
+# ABOVE..This creates an instance,to create multiple queries on the mysql db
+    query = """SELECT MIN(id), name FROM states
+               WHERE name = %s
+               ORDER by id ASC"""
+    cur.execute(query, (search,))
+# ABOVE.. This select unique entries by choosing based on min. id,
+# as id is unique
     result = cur.fetchall()  # to fetch result from cur.execute
     for data in result:
         print(data)
