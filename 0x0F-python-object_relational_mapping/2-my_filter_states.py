@@ -14,7 +14,7 @@ if __name__ == '__main__':
     query = """SELECT MIN(id),name
            FROM states
            WHERE name = BINARY '{}'
-           ORDER BY name;
+           ORDER BY id;
         """.format(search)
 # you can't order a clause, unless it has been grouped
 # the group clause takes duplicates together
