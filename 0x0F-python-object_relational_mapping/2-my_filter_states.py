@@ -12,6 +12,7 @@ if __name__ == '__main__':
                          port=3306, db=database)
     cur = db.cursor()
     query = """SELECT MIN(id), name FROM states WHERE name='{}'
+                ORDER by id ASC
                 """.format(search)
     cur.execute(query)
 # ABOVE.. This select unique entries by choosing based on min. id,
