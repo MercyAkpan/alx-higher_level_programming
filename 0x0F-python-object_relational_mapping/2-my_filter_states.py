@@ -11,7 +11,7 @@ if __name__ == '__main__':
                          password=user_password,
                          port=3306, db=database)
     cur = db.cursor()
-    query = """SELECT MIN(id),name
+    query = """SELECT *
            FROM states
            WHERE name = BINARY '{}'
            ORDER BY id;
