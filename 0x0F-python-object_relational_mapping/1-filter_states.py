@@ -17,6 +17,7 @@ if __name__ == '__main__':
                 WHERE name LIKE BINARY 'N%'
                 GROUP BY name
                 """)
+# BINARY - MAKES CASE-SENSITIVE
 # ABOVE.. This select unique entries by choosing based on min. id,
 # as id is unique
     result = cur.fetchall()  # to fetch result from cur.execute
