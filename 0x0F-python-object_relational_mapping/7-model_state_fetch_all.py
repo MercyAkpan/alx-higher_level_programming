@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+""" SQLALCHEMY MODULE """
+from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base
+from model_state import Base, State
+if __name__ == "__main__":
+    Base = declarative_base()
+    db = "hbtn_0e_6_usa"
+    user = "meme"
+    connection = f"mysql+mysqldb://{user}:password1@localhost:3306/{db}"
+    engine = create_engine(connection, echo=False)
+    Base.metadata.create_all(bind=engine)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    res = session.query(State).all()
+# ABOVE. This  returns a list of the State objects
+    for data in res:
+        print(f"{data.id}: {data.name}")
+# To access the list(res), use each row attribute, not index
