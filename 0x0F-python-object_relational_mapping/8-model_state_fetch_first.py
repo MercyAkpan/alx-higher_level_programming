@@ -16,7 +16,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    res = session.get(State, 1)
+    res = session.query(State).order_by(State.id).get(1)
     print(f"{res.id}: {res.name}")
 # ABOVE. This  returns a list of the State objects
 #     for data in res:
