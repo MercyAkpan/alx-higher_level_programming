@@ -3,11 +3,13 @@
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+import sys
 
 Base = declarative_base()
-db = "hbtn_0e_6_usa"
-user = "meme"
-connection = f"mysql+mysqldb://{user}:password1@localhost:3306/{db}"
+user = sys.argv[0]
+pswd = sys.argv[1]
+db = sys.argv[2]
+connection = f"mysql+mysqldb://{user}:{pswd}@localhost:3306/{db}"
 engine = create_engine(connection, echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
