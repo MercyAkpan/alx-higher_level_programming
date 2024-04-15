@@ -18,7 +18,10 @@ if __name__ == "__main__":
     session = Session()
 
     res = session.query(State).order_by(State.id).first()
-    print(f"{res.id}: {res.name}")
+    if res is None:
+        print("Nothing")
+    else:
+        print(f"{res.id}: {res.name}")
 # ABOVE. This  returns a list of the State objects
 #     for data in res:
 #         print(f"{data.id}: {data.name}")
