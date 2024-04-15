@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" SQLALCHEMY MODULE """
+""" SQLALCHEMY MODULE for connecting to the Datbase 
+"""
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
