@@ -20,9 +20,10 @@ class State(Base):
         self.name = name
 
 
-engine = create_engine("""mysql+mysqldb://meme
-                       :password1@localhost:3306/
-                       hbtn_0e_6_usa""", echo=True)
+db = "hbtn_0e_6_usa"
+user = "meme"
+connection = f"mysql+mysqldb://{user}:password1@localhost:3306/{db}"
+engine = create_engine(connection, echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()
