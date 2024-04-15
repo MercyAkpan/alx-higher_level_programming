@@ -24,7 +24,7 @@ class State(Base):
     id = Column(Integer(), primary_key=True)
     name = Column(String(128), nullable=False)
 
-    def __init__(self, name):
-        """ THIS IS THE INIT FUNCTION
-        """
-        self.name = name
+#    def __init__(self, name):
+#        """ THIS IS THE INIT FUNCTION
+#        """
+#        self.name = name
