@@ -21,7 +21,7 @@ class State(Base):
 
 
 engine = create_engine("""mysql+mysqldb://meme
-                       :password1@localhost/
+                       :password1@localhost:3306/
                        hbtn_0e_6_usa""", echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
