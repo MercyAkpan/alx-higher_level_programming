@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" SQLALCHEMY MODULE for connecting to the Datbase 
+""" SQLALCHEMY MODULE for connecting to the Datbase
 """
 from sqlalchemy import create_engine, Column, String, Integer
 from sqlalchemy.orm import sessionmaker
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    res = session.query(State).order_by(State.id).get(1)
+    res = session.query(State).order_by(State.id).first()
     print(f"{res.id}: {res.name}")
 # ABOVE. This  returns a list of the State objects
 #     for data in res:
