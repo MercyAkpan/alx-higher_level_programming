@@ -6,9 +6,9 @@ from sqlalchemy.ext.declarative import declarative_base
 import sys
 
 Base = declarative_base()
-user = sys.argv[0]
-pswd = sys.argv[1]
-db = sys.argv[2]
+user = sys.argv[1]
+pswd = sys.argv[2]
+db = sys.argv[3]
 connection = f"mysql+mysqldb://{user}:{pswd}@localhost:3306/{db}"
 engine = create_engine(connection, echo=True)
 Base.metadata.create_all(bind=engine)
