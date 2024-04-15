@@ -18,4 +18,5 @@ if __name__ == "__main__":
 # ABOVE. This  returns a list of the State objects
     for data in res:
         print(f"{data.id}: {data.name}")
-# To access the list(res), use each row attribute, not index
+    # To access the list(res), use each row attribute, not index
+    session.close()
