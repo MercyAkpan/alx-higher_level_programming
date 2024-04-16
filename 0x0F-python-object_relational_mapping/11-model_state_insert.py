@@ -11,7 +11,6 @@ if __name__ == "__main__":
     user = sys.argv[1]
     pswd = sys.argv[2]
     db = sys.argv[3]
-    search = sys.argv[4]
     connection = f"mysql+mysqldb://{user}:password1@localhost:3306/{db}"
     engine = create_engine(connection)
     Base.metadata.create_all(bind=engine)
