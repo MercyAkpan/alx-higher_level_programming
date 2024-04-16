@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ SQLALCHEMY MODULE for connecting to the Datbase
 """
-from sqlalchemy import create_engine, Column, String, Integer
+from sqlalchemy import create_engine, Column, String, Integer, ForeignKey
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import sys
@@ -16,12 +16,13 @@ Base = declarative_base()
 # session = Session()
 
 
-class State(Base):
+class City(Base):
     """ THIS IS A CLASS MAPPED TO A TABLE
     """
-    __tablename__ = "states"
+    __tablename__ = "cities"
     id = Column(Integer(), primary_key=True, autoincrement=True)
     name = Column(String(128))
+    state_id = Column(Integer(), ForeignKey('states.id'))
 #    def __init__(self, name):
 #        """ THIS IS THE INIT FUNCTION
 #        """
