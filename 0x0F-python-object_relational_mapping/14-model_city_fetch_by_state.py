@@ -17,9 +17,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(City).join(State, City.state_id == State.id)
-# ABOVE. This  returns a list of the State objects
+    query = session.query(City, State).join(State, City.state_id == State.id)
+# ABOVE .. This query returns in order: City, States object.
     for city, state in query:
+        # query is a list of tuples,each tuple contain a city and state object
         print(f"{state.name}: ({city.id}) {city.name}")
+# ABOVE.. Unpacking the tuple, as city,state
 
     session.close()
