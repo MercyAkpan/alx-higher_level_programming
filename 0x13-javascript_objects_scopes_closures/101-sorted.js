@@ -19,7 +19,7 @@ for (const [key, value] of Object.entries(dict1)) { // Object.entries is used to
 // const formattedDict = Object.entries(originalDict).map(([key, value]) => ({
 //  [key]: (key === "age" && value >= minAge) ? "Eligible" : value
 // }));
-for (const [Count, IdList] of Object.entries(dict2)) {
-  const UserIds = IdList.join(', '); // Join user IDs with commas
-  console.log(`key: ${Count} - ${UserIds}`); // Formatted output
-}
+// for (const [Count, IdList] of Object.entries(dict2)) {
+//  const UserIds = IdList.join(', '); // Join user IDs with commas
+//  console.log(`key: ${Count} - ${UserIds}`); // Formatted output
+// }
