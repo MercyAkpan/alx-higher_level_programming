@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """This script sends a request to the URL and displays the body of the
 response. If an error occurs, the script will manage the error and display"""

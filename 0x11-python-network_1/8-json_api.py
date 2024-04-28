@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Module that sends a POST request to a URL with a letter as a parameter"""
 

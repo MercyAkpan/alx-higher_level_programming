@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Fetches the status of the ALX intranet server
 Link: https://alx-intranet.hbtn.io/status"""
