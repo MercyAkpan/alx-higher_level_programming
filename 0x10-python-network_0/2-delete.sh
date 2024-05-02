@@ -1,3 +1,3 @@
 #!/bin/bash
-# This script deletes the file passed as an argument
-curl -s -X DELETE "$1"
+#MINE
+curl -X DELETE -sL $1
