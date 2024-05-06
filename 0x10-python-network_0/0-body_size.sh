@@ -1,3 +1,4 @@
 #!/bin/bash
-#curl -sw "%{size_download}\n" $1 --> This doesnt work perfectly 
-curl -sI $1 | grep -e Content-Length | cut -d ' ' -f 2
+#MINE
+#curl -so /dev/null "$1" -w "%{size_download}" OR
+curl -sI $1 | grep -i  -e Content-Length | cut -d ' ' -f 2
