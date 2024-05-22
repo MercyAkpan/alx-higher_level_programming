@@ -4,8 +4,8 @@ const fs = require('fs');
 const writeToFile = (filePath, content) => {
   try {
     // Write the content to the file synchronously with UTF-8 encoding
-    fs.appendFileSync(filePath, content, 'utf-8');
-    console.log('File appended successfully.');
+    fs.writeFileSync(filePath, content, 'utf-8');
+    console.log('File written successfully.');
   } catch (error) {
     // Print the error object if an error occurred during writing
     console.error('An error occurred:', error);
