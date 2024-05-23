@@ -2,12 +2,8 @@
 const { exec } = require('child_process');
 
 // URL to fetch
-if (process.argv.length !== 3) {
-  console.log('Usage: node script.js <url>') 
-} else {
-const url = process.argv[3] 
-}
-const url = "www.mercyakpan.tech" 
+const url = process.argv[2] 
+//const url = "www.mercyakpan.tech" 
 
 // Execute curl command to get status code
 exec(`curl -s -o /dev/null -I -w "%{http_code}" ${url}`, (error, stdout, stderr) => {
