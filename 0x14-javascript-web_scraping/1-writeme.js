@@ -12,9 +12,9 @@ if (process.argv.length !== 4) {
   fs.writeFile(filePath, content, 'utf-8', (error) => {
     if (error) {
       // Print the error object if an error occurred during writing
-      console.error('An error occurred:', error);
+      console.error(error);
     } else {
-      console.log(`Content successfully written to ${filePath}`);
+      console.log(process.argv[3]);
     }
   });
 }
