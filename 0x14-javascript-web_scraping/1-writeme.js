@@ -2,9 +2,6 @@
 const fs = require('fs');
 
 // Check if the correct number of arguments are provided
-if (process.argv.length !== 4) {
-  console.log('Usage: node script.js <file_path> <content>');
-} else {
   const filePath = process.argv[2];
   const content = process.argv[3];
 
@@ -13,8 +10,5 @@ if (process.argv.length !== 4) {
     if (error) {
       // Print the error object if an error occurred during writing
       console.error(error);
-    } else {
-      console.log(process.argv[3]);
     }
   });
-}
