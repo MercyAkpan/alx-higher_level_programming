@@ -1,12 +1,12 @@
 #!/usr/bin/node
-//const { exec } = require('child_process');
+// const { exec } = require('child_process');
 //
-//// URL to fetch
-//const url = process.argv[2] 
-////const url = "www.mercyakpan.tech" 
+/// / URL to fetch
+// const url = process.argv[2]
+/// /const url = "www.mercyakpan.tech"
 //
-//// Execute curl command to get status code
-//exec(`curl -s -o /dev/null -I -w "%{http_code}" ${url}`, (error, stdout, stderr) => {
+/// / Execute curl command to get status code
+// exec(`curl -s -o /dev/null -I -w "%{http_code}" ${url}`, (error, stdout, stderr) => {
 //  if (error) {
 //    console.error(`Error: ${error.message}`);
 //    return;
@@ -17,7 +17,7 @@
 //  }
 //  // Print status code in the desired format
 //  console.log(`Code: ${stdout}`);
-//});
+// });
 //
 const request = require('request');
 
@@ -33,4 +33,3 @@ request(url, function (error, response, body) {
     console.log(`code: ${response.statusCode}`);
   }
 });
-
