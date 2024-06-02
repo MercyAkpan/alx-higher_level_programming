@@ -4,7 +4,7 @@ const filmId = process.argv[2]
 //console.log(film_id)
 // Request URL
 let url = `https://swapi-api.alx-tools.com/api/films/${filmId}`
-console.log(url)
+//console.log(url)
 request(url, { json: true }, (error, response, body) => {
 	// Printing the error if occurred
 	if (error) console.log(error)
