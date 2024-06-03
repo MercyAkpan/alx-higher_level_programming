@@ -1,18 +1,23 @@
 #!/usr/bin/node
 
-const request = require('request');
-const fs = require('fs');
-const url = process.argv[2];
-const file = process.argv[3];
+// This script computes the number of tasks completed by user id.
 
-request(url, (error, response, body) => {
+const request = require('request');
+const url = process.argv[2];
+
+request(url, function (error, response) {
   if (error) {
-    console.log(error);
+    console.error(error);
   } else {
-    fs.writeFile(file, body, 'utf8', (error) => {
-      if (error) {
-        console.log(error);
+    const tasks = JSON.parse(response.body);
+    const completedTasks = {};
+
+    tasks.forEach((task) => {
+      if (task.completed) {
+        completedTasks[task.userId] = (completedTasks[task.userId] || 0) + 1;
       }
     });
+
+    console.log(completedTasks);
   }
 });
